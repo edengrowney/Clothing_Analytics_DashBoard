@@ -10,10 +10,11 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { flameOutline, shirtOutline, analytics } from 'ionicons/icons';
+import Activity from './pages/Activity';
+import Listings from './pages/Listings';
+import Insights from './pages/Insights';
+import PostPage from './pages/PostPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -52,31 +53,34 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/activity">
+            <Activity />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/listings">
+            <Listings />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/insights">
+            <Insights />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/activity" />
+          </Route>
+          <Route path="/post">
+            <PostPage />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="Activity" href="/activity">
+            <IonIcon aria-hidden="true" icon={flameOutline} />
+            <IonLabel>Activity</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="Listings" href="/listings">
+            <IonIcon aria-hidden="true" icon={shirtOutline} />
+            <IonLabel>Listings</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="Insights" href="/insights">
+            <IonIcon aria-hidden="true" icon={analytics} />
+            <IonLabel>Insights</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
